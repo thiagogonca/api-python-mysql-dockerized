@@ -33,30 +33,30 @@ python3 -m ipykernel install --user --name=hypeq1
 ```
 
 ## Open bash in mysql container
-'''
+```
 docker exec -it mysql_app /bin/bash
-'''
+```
 
 ## Create database 'db' in mysql 
-'''
+```
 docker exec -i mysql_app mysql -uroot -phype_psd < ./db/create_db.sql 
-'''
+```
 
 # Python
 
 ## Build python3 app image
-''' 
+``` 
 docker build -t python3-img -f $(pwd)/dockerfile/python.dockerfile .
-'''
+```
 
 - OPENSSL_CONF=/path/to/custom/openssl.cnf is a custom .cnf file to access the IBGE api. 
 - https://stackoverflow.com/questions/71603314/ssl-error-unsafe-legacy-renegotiation-disabled
 - maybe -p 9001:9001 --link mysql_app
 
 ## Run python containerized application w/ symbolic link to mysql container (maybe -p too)
-'''
+```
 sudo docker run -e OPENSSL_CONF=$(pwd)/app/openssl.cnf -it --link mysql_app --rm --name python_app -v $(pwd)/app:/usr/src/myapp -w /usr/src/myapp python3-img python app_hype.py
-'''
+```
 
 
 
