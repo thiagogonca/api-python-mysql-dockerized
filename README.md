@@ -61,11 +61,7 @@ docker exec -it mysql_app mysql -uroot -phype_psd
 docker build -t python3-img -f $(pwd)/dockerfile/python.dockerfile .
 ```
 
-### Run python containerized application w/ symbolic link to mysql container (maybe -p too)
+### Run python containerized application w/ symbolic link to mysql container
 ```
 docker run -e OPENSSL_CONF=$(pwd)/app/openssl.cnf -it --link mysql_app --rm --name python_app -v $(pwd)/app:/usr/src/myapp -w /usr/src/myapp python3-img 
 ```
-
-<!-- python app_hype.py -->
-
-
