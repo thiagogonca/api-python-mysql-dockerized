@@ -32,7 +32,7 @@ cr_tbl = '''CREATE TABLE IPCA (
 
 cursor.execute(cr_tbl)
 
-ins_tbl = '''INSERT INTO IPCA (ANO, IPCA_VAR) VALUES (%s %s)'''
+ins_tbl = '''INSERT INTO IPCA (ANO, IPCA_VAR) VALUES (%s,%s)'''
 
 cursor.executemany(ins_tbl, items)
 
