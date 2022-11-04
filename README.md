@@ -1,4 +1,5 @@
 ## Acme project directories schema:
+
 [acme_project]
     project.ipynb
     requirements.txt
@@ -17,20 +18,19 @@
 - All terminal commmands should be executed from the main project directory 'acme_project'. 
 
 # Virtual Enviroment configuration
-'''
 python3 -m venv ./env
 source ./env/bin/activate
 (env) pip install -r requirements.txt
 (env) deactivate 
 python3 -m ipykernel install --user --name=hypeq1
-'''
+
 
 # MySQL
 
 ## Execute mysql container directly from mysql latest image version
-'''
+```
 !docker run --rm --name mysql_app -d -v $(pwd)/db/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=hype_psd mysql
-'''
+```
 
 ## Open bash in mysql container
 '''
