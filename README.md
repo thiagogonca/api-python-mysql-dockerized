@@ -1,29 +1,39 @@
 ## Acme project directories schema:
 
-[acme_project]
-    project.ipynb
-    requirements.txt
-        [app]
-            app_hype.py 
-        [db]
-            query_hype.sql
-            create_db.sql
-            [data] # locked
-        [env]
-            [hypeq1]   
-                [...]
-        [dockerfile]
-            python.dockerfile
+```
+acme_project
+│   README.md
+│   project_draft.ipynb    
+│   requirements.txt
+│
+└───app
+│   │   app_hype.py
+│
+└───db
+│   │   query_hype.sql
+│   │   create_db.sql
+│   │
+│   └───data 
+│       │   (x)
+│   
+└───env
+│   │   ...
+│
+└───dockerfile
+    │   python.dockerfile
 
-- All terminal commmands should be executed from the main project directory 'acme_project'. 
+```
+
+#### All terminal commmands should be executed from the main project directory 'acme_project'. 
 
 # Virtual Enviroment configuration
+```
 python3 -m venv ./env
 source ./env/bin/activate
 (env) pip install -r requirements.txt
 (env) deactivate 
 python3 -m ipykernel install --user --name=hypeq1
-
+```
 
 # MySQL
 
