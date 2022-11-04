@@ -1,0 +1,4 @@
+requests
+ipykernel
+pymysql
+cryptography
