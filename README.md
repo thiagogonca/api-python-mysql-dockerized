@@ -16,7 +16,7 @@ acme_project
 │   │   create_db.sql
 │   └───data (dockerized)
 │   
-└───env
+└───env_hypeq1
 │   │   ...
 │
 └───dockerfile

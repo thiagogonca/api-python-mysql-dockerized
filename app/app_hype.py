@@ -10,7 +10,7 @@ for entities in req:
 
 items = []
 for key, val in ipca_var.items():
-   items.append((int(key), float(val)))
+   items.append((int(key[:4]), int(key[4:]), float(val)))
 
 
 myConnection = pymysql.connect( 
@@ -25,14 +25,14 @@ cursor = myConnection.cursor()
 cursor.execute('DROP TABLE IF EXISTS IPCA')
 
 cr_tbl = '''CREATE TABLE IPCA (
-        ANO INT NOT NULL,
-        IPCA_VAR DECIMAL(3,2) NOT NULL, 
-        PRIMARY KEY (ANO)
+        YEAR INT NOT NULL,
+        MONTH INT NOT NULL,
+        IPCA_VAR DECIMAL(3,2) NOT NULL
     )'''
 
 cursor.execute(cr_tbl)
 
-ins_tbl = '''INSERT INTO IPCA (ANO, IPCA_VAR) VALUES (%s,%s)'''
+ins_tbl = '''INSERT INTO IPCA (YEAR, MONTH, IPCA_VAR) VALUES (%s,%s,%s)'''
 
 cursor.executemany(ins_tbl, items)
 
